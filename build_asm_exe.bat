@@ -1,17 +1,16 @@
 @echo off
-REM Build script for creating standalone .exe from asm_generator.py
-REM Requires PyInstaller: pip install pyinstaller
+:: Build script for creating standalone .exe from disassembler.py
+:: Requires PyInstaller: pip install pyinstaller
 
-REM Change to the directory where this batch file is located
 cd /d "%~dp0"
 
 echo ============================================================================
-echo Building NeHe Atari 2600 ASM Generator
+echo Building NeHe Atari 2600 Smart Disassembler
 echo ============================================================================
 echo Working directory: %CD%
 echo.
 
-REM Check if PyInstaller is installed
+:: Check if PyInstaller is installed
 python -c "import PyInstaller" 2>nul
 if errorlevel 1 (
     echo PyInstaller not found. Installing...
@@ -27,9 +26,9 @@ if errorlevel 1 (
     echo.
 )
 
-REM Build the executable
+:: Build the executable
 echo Building executable...
-python -m PyInstaller --onefile --name "NeHe-Atari2600-ASM-Generator" --console asm_generator.py
+python -m PyInstaller --onefile --console --name "NeHe-Atari2600-Disassembler" disassembler.py
 
 if errorlevel 1 (
     echo.
@@ -43,11 +42,11 @@ echo ===========================================================================
 echo Build complete!
 echo.
 echo The executable can be found in the 'dist' folder:
-echo   dist\NeHe-Atari2600-ASM-Generator.exe
+echo   dist\NeHe-Atari2600-Disassembler.exe
 echo.
 echo Usage:
-echo   NeHe-Atari2600-ASM-Generator.exe rom.a26
-echo   NeHe-Atari2600-ASM-Generator.exe rom.a26 --visualize-data
-echo   NeHe-Atari2600-ASM-Generator.exe rom.a26 -o output.asm
+echo   NeHe-Atari2600-Disassembler.exe rom\game.a26
+echo   NeHe-Atari2600-Disassembler.exe rom\game.a26 --comments --cycles
+echo   NeHe-Atari2600-Disassembler.exe rom\game.a26 -o output.asm
 echo ============================================================================
 pause
