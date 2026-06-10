@@ -1,8 +1,18 @@
 # NeHe Atari 2600 Smart Disassembler
 
-An advanced, intelligent disassembler for Atari 2600 ROMs. Uses code flow analysis, CPU simulation, and pattern recognition to produce clean, reassemblable 6502 assembly output.
+My attempt at an advanced, intelligent disassembler for Atari 2600 ROMs. Uses code flow analysis, CPU simulation, and pattern recognition to produce clean, reassemblable 6502 assembly output.
 
 **Created by Jeff Molofee (NeHe) — 2026**
+
+## A Personal Note
+
+This was a fun side project — something I'd always wanted to try building from scratch. Writing your own disassembler is a surprisingly deep rabbit hole, and a great way to really understand what's happening inside a classic ROM.
+
+If you need a production-ready 6502 disassembler, there are excellent tools that will serve you far better for serious work — [Ghidra](https://ghidra-sre.org/) (with its 6502 processor module) is the gold standard for reverse engineering, [IDA Pro](https://hex-rays.com/ida-pro/) is another industry staple, and for Atari 2600 specifically, [Distella](https://github.com/gdb/distella) has been the go-to disassembler for decades.
+
+The real motivation was simple: I wanted to take a classic ROM like *Frogs and Flies*, crack it open, understand how it worked, and eventually re-create it using my own tools. So I built this disassembler to get clean, readable output, and a companion [NeHe Atari 2600 Assembler](https://github.com/nehe) to put it back together. The whole point was the round-trip — disassemble, study, tweak, reassemble — just for the fun of it.
+
+It's nowhere near as capable as the tools listed above, but for exploring Atari 2600 ROMs and feeding output into the companion assembler, it does exactly what I needed.
 
 ## Features
 
