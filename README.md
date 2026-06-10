@@ -190,7 +190,7 @@ python disassembler.py rom/game.a26 -o rom/game.asm
 
 ## Building the Executable
 
-The GitHub Actions workflow in `.github/workflows/build.yml` automatically builds the Windows executable on every push and release using PyInstaller.
+The GitHub Actions workflow in `.github/workflows/release.yml` automatically builds the Windows executable and creates a GitHub Release using PyInstaller.
 
 To build locally:
 
