@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+*.egg
+.eggs/
+.env
+.venv
+env/
+venv/
+
+# PyInstaller build artifacts
+build/
+dist/
+*.spec
+
+# ROM files (do not distribute copyrighted ROMs)
+rom/*.a26
+rom/*.bin
+rom/*.rom
+
+# Disassembled output (generated files)
+rom/*.asm
+
+# Backups
+backups/
+backup*/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo

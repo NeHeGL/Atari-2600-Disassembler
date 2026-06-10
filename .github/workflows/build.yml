@@ -1,0 +1,48 @@
+name: Build Windows Executable
+
+on:
+  push:
+    branches: [ main ]
+  release:
+    types: [ published ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install PyInstaller
+        run: pip install pyinstaller
+
+      - name: Build executable
+        run: |
+          pyinstaller --onefile --name "NeHe-Atari2600-Disassembler" --console disassembler.py
+
+      - name: Copy README into dist
+        run: Copy-Item README.md dist\README.md
+
+      - name: Upload executable artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: NeHe-Atari2600-Disassembler-Windows
+          path: |
+            dist\NeHe-Atari2600-Disassembler.exe
+            dist\README.md
+          if-no-files-found: error
+
+      - name: Upload to Release
+        if: github.event_name == 'release'
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            dist\NeHe-Atari2600-Disassembler.exe
+            dist\README.md
