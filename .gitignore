@@ -28,6 +28,9 @@ rom/*.asm
 backups/
 backup*/
 
+# Release helper (local use only)
+release.bat
+
 # OS files
 .DS_Store
 Thumbs.db
